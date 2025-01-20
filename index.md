@@ -7,3 +7,6 @@ author_profile: true
 ---
 
 Hello! this is Doyoon's github page
+
+- study1
+- study2
