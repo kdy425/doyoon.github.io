@@ -1,5 +1,5 @@
 ---
-title: "Algorithm - BFS"
+title: "2주차 network"
 categories:
   - network
 tags:
