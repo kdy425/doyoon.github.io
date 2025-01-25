@@ -164,13 +164,54 @@ tags:
 
 ## 코드 구현
 
+이제 빠른 모듈러 거듭제곱 알고리즘을 활용하여 실제 문제를 해결해보겠습니다.
+
+### 예제 문제: 수퍼 바이러스(Softeer)
+https://softeer.ai/practice/6292
+
+**문제 설명**
+
+- 수퍼 바이러스가 숙주의 몸속에서 **0.1초당 P배씩** 증가합니다.
+- 처음에 수퍼 바이러스 **K마리**가 있습니다.
+- **N초 후**에는 총 몇 마리의 수퍼 바이러스로 불어날까요?
+- N초 동안 죽는 수퍼 바이러스는 없다고 가정합니다.
+- 수퍼 바이러스는 일반 바이러스에 비해서 훨씬 오래 생존할 수 있기 때문에 N이 매우 클 수 있습니다.
+
+**제약 조건**
+
+- \( 1 <= K <= 10^8 \)
+- \( 1 <= P <= 10^8 \)
+- \( 1 <= N <= 10^16 \)
+
+**입력 형식**
+
+- 첫 번째 줄에 처음 바이러스의 수 \( K \), 증가율 \( P \), 총 시간 \( N \) (초)이 주어집니다.
+
+**출력 형식**
+
+- 최종 바이러스 개수를 **1,000,000,007로 나눈 나머지**를 출력합니다.
+
+### 해결 방법
+
+- 바이러스는 **0.1초당 P배씩** 증가하므로, **1초당 10번** 증가합니다.
+- 따라서 **N초 후 총 증가 횟수**는 \( N \times 10 \)번입니다.
+- 최종 바이러스 수는 다음과 같이 계산됩니다:
+  \[
+  \text{최종 바이러스 수} = K * P^{N * 10} mod 1,000,000,007
+  \]
+- 지수가 매우 크기 때문에, **빠른 거듭제곱 알고리즘**을 사용하여 \( P^{N * 10} mod 1,000,000,007 \)을 효율적으로 계산해야 합니다.
+
+### 코드
+
 ```cpp
 #include <iostream>
 
-// 모듈러 거듭제곱 함수
+const long long MOD = 1000000007;
+
+// 빠른 모듈러 거듭제곱 함수
 long long mod_pow(long long base, long long exponent, long long modulus) {
     long long result = 1;
-    base = base % modulus; // 초기 기반 값을 modulus로 나눔
+    base %= modulus; // 기반을 modulus로 나눠 초기화
 
     while (exponent > 0) {
         if (exponent % 2 == 1) { // 지수가 홀수인 경우
@@ -179,20 +220,23 @@ long long mod_pow(long long base, long long exponent, long long modulus) {
         base = (base * base) % modulus; // 기반을 제곱하고 모듈러 연산
         exponent /= 2; // 지수를 절반으로 감소
     }
+
     return result;
 }
 
 int main() {
-    long long a, n, m;
-    std::cout << "a^n mod m을 계산합니다.\n";
-    std::cout << "a를 입력하세요: ";
-    std::cin >> a;
-    std::cout << "n을 입력하세요: ";
-    std::cin >> n;
-    std::cout << "m을 입력하세요: ";
-    std::cin >> m;
+    long long K, P, N;
+    std::cin >> K >> P >> N;
 
-    long long result = mod_pow(a, n, m);
-    std::cout << "결과: " << result << std::endl;
+    long long exponent = N * 10; // 총 증가 횟수 계산
+
+    // P^(N*10) mod MOD 계산
+    long long growth = mod_pow(P, exponent, MOD);
+
+    // 최종 바이러스 수 계산
+    long long final_count = (K * growth) % MOD;
+
+    std::cout << final_count << std::endl;
+
     return 0;
 }
