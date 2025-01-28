@@ -5,5 +5,7 @@ main:
     url: /categories/
   - title: "Tags"
     url: /tags/
+  - title: "mobility security"
+    url: /mobility_security/
   - title: "About"
     url: /about/
