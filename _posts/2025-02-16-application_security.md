@@ -164,5 +164,3 @@ title: "Application Security"
 
 ## 접근 제어 목록(ACL)
 - 트래픽 허용/차단 규칙 정의로 네트워크 보안 강화.
-```
-![image](https://github.com/user-attachments/assets/018ebbd1-0b04-4596-b295-3a2ef1652968)
