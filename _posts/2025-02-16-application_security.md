@@ -1,9 +1,7 @@
 ---
-layout: post
-date: 2025-02-16
 title: "Application Security"
 ---
-# 모의 해킹 (Penetration Testing)
+#애플리케이션 보안
 
 ## 정의
 - 모의 해킹(Penetration Testing)은 실제 해킹 공격을 모방하여 시스템, 네트워크, 애플리케이션 등의 보안 취약점을 식별하고 평가하는 과정
