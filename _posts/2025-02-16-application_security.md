@@ -302,5 +302,4 @@ title: "Application Security"
    - 일반적으로 사용되지 않는 포트의 트래픽을 감시한다.
 4. 보안 패치 적용:
    - 소프트웨어의 최신 보안 업데이트를 적용하여 알려진 취약점을 제거한다.
-![image](https://github.com/user-attachments/assets/6fff3996-a1b2-41cd-bda6-38688dc9422b)
 
