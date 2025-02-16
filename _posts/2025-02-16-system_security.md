@@ -6,26 +6,26 @@ title: "System security"
 # 시스템 보안
 
 ## [마운트(Mount)](pplx://action/followup)
-하드웨어 디바이스나 파티션을 특정 디렉터리에 연결하여 파일 시스템으로 접근할 수 있게 하는 과정입니다.
+하드웨어 디바이스나 파티션을 특정 디렉터리에 연결하여 파일 시스템으로 접근할 수 있게 하는 과정
 
 ---
 
 ## [하드 링크(Hard Link)](pplx://action/followup)
 - **[생성 방법](pplx://action/followup)**: `ln test test_ln`
-- 동일한 inode 번호를 공유하여 하나의 파일을 여러 이름으로 접근할 수 있습니다.
-- 원본 파일을 삭제해도 링크된 파일은 그대로 유지됩니다.
+- 동일한 inode 번호를 공유하여 하나의 파일을 여러 이름으로 접근할 수 있다.
+- 원본 파일을 삭제해도 링크된 파일은 그대로 유지된다.
 
 ---
 
 ## [소프트 링크(Soft Link, 심볼릭 링크)](pplx://action/followup)
 - **[생성 방법](pplx://action/followup)**: `ln -s test test_sl`
-- 별도의 inode를 가지며, 원본 파일의 경로를 참조하는 방식입니다.
-- 원본 파일이 삭제되면 링크도 유효하지 않게 됩니다.
+- 별도의 inode를 가지며, 원본 파일의 경로를 참조하는 방식
+- 원본 파일이 삭제되면 링크도 유효하지 않게 된다.
 
 ---
 
 ## [inode 정보 확인](pplx://action/followup)
-`stat` 명령어를 사용하여 파일의 inode 번호 및 메타데이터를 확인할 수 있습니다.  
+`stat` 명령어를 사용하여 파일의 inode 번호 및 메타데이터를 확인할 수 있다. 
 예시: `stat test`
 
 ---
@@ -38,7 +38,7 @@ title: "System security"
 ---
 
 # 파일 및 디렉터리 검색
-- **[find 명령어](pplx://action/followup)**: 특정 조건에 맞는 파일이나 디렉터리를 검색합니다.
+- **[find 명령어](pplx://action/followup)**: 특정 조건에 맞는 파일이나 디렉터리를 검색
   - **[형식](pplx://action/followup)**: `find [경로] [조건] [액션]`
   - **[예시](pplx://action/followup)**: `find ./ -perm -4000` (SET_UID가 설정된 파일 찾기)
 
@@ -47,15 +47,15 @@ title: "System security"
 # 권한 관리와 특수 권한
 
 ## [기본 권한 설정](pplx://action/followup)
-- **[umask](pplx://action/followup)**: 새로 생성되는 파일이나 디렉터리의 기본 권한을 결정합니다.
+- **[umask](pplx://action/followup)**: 새로 생성되는 파일이나 디렉터리의 기본 권한을 결정
 
 ## [특수 권한](pplx://action/followup)
 1. **[SetUID (s)](pplx://action/followup)**:
-   - 실행 파일에 설정되며, 실행 시 해당 파일의 소유자 권한으로 동작합니다.
+   - 실행 파일에 설정되며, 실행 시 해당 파일의 소유자 권한으로 동작
 2. **[SetGID (s)](pplx://action/followup)**:
-   - 실행 파일이나 디렉터리에 설정되며, 생성되는 파일이 해당 그룹을 상속받습니다.
+   - 실행 파일이나 디렉터리에 설정되며, 생성되는 파일이 해당 그룹을 상속
 3. **[Sticky Bit (t)](pplx://action/followup)**:
-   - 디렉터리에 설정되며, 파일 삭제 권한을 해당 파일의 소유자나 디렉터리 소유자만 가지게 합니다.
+   - 디렉터리에 설정되며, 파일 삭제 권한을 해당 파일의 소유자나 디렉터리 소유자만 가지게 한다.
    - **[설정 방법](pplx://action/followup)**: `chmod +t [디렉터리명]` 또는 `chmod 1XXX [디렉터리명]`
 
 ---
@@ -66,7 +66,7 @@ title: "System security"
 시스템에 대한 무단 접근 권한을 얻기 위해 사용되는 악성 코드 또는 도구 모음.
 
 ## [특징](pplx://action/followup)
-- 탐지와 제거가 매우 어렵습니다.
+- 탐지와 제거가 매우 어렵다
 - 주요 기능:
   1. 권한 상승
   2. 은닉성
